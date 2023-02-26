@@ -1,4 +1,4 @@
-<main style="min-height: 88vh" >
+<main style="min-height: 88vh">
   <div class="toolbar" role="banner">
     <img
       width="40"
@@ -133,5 +133,10 @@
     </svg>
   </div>
 
-  <div class="editor" #editor></div>
+  <div class="editor-container">
+    <div class="editor" #editor></div>
+    <button (click)="connectionBtnHandler()" class="contection-btn">
+      <span>{{ isConnected ? "Disconnect" : "Connect" }}</span>
+    </button>
+  </div>
 </main>

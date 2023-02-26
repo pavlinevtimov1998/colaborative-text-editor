@@ -23,6 +23,8 @@ export class AppComponent implements AfterViewInit {
   private yDoc!: Y.Doc;
   private provider!: WebsocketProvider;
 
+  isConnected = true;
+
   constructor() {}
 
   ngAfterViewInit(): void {
@@ -53,5 +55,15 @@ export class AppComponent implements AfterViewInit {
         ],
       }),
     });
+  }
+
+  connectionBtnHandler() {
+    if (this.provider.shouldConnect) {
+      this.provider.disconnect();
+      this.isConnected = false;
+    } else {
+      this.provider.connect();
+      this.isConnected = true;
+    }
   }
 }
