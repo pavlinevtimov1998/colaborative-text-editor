@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 import { EditorState, Plugin } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
@@ -17,7 +17,7 @@ import SelectPlugin from './selectPlugin';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   @ViewChild('editor', { static: true }) editorElementRef!: ElementRef;
 
   private yDoc!: Y.Doc;
@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
 
   constructor() {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.yDoc = new Y.Doc();
     this.provider = new WebsocketProvider(
       'wss://demos.yjs.dev',
