@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "collaborative-text-editor/dist/collaborative-text-editor",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
